@@ -5,7 +5,15 @@
 <h3>Guests</h3>
 
 <ul>
-  <% @episode.guests.each do |guest| %>
-    <li><%= link_to guest.name, guest %></li>
+  <% @episode.appearances.each do |appearance| %>
+    <li><%= link_to appearance.guest.name, appearance.guest %></li>
+
+    <li><%= "Rating: #{appearance.rating}" %></li>
+    <% if appearance.user_id == session[:user_id] %>
+    <li><%= link_to "Edit Appearance", "/appearances/#{appearance.id}/edit" %></li>
+    <% end %>
+    <br /><br />
   <% end %>
 </ul>
+
+<%= link_to "Create Appearance", new_episode_appearance_path(@episode) %>

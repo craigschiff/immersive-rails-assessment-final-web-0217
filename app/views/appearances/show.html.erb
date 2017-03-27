@@ -1,0 +1,9 @@
+<h3>Appearance Details</h3>
+
+<%= "Rating: #{@appearance.rating}" %><br />
+<%= "Date: #{@appearance.episode.date}" %><br />
+<%= link_to "Episode: #{@appearance.episode.date}", @appearance.episode %><br />
+<% if @appearance.user_id == session[:user_id] %>
+<li><%= link_to "Edit Appearance", "/appearances/#{@appearance.id}/edit" %></li>
+<br /><br />
+<% end %>

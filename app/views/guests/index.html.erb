@@ -3,5 +3,7 @@
 <ul>
   <% @guests.each do |guest| %>
     <li><%= link_to guest.name, guest %></li>
+    <li><%= "Avg rating: #{guest.avg_rating}" %></li>
+    <br /><br />
   <% end %>
 </ul>

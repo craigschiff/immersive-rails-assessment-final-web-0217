@@ -1,4 +1,5 @@
 class SessionsController < ApplicationController
+skip_before_action :is_logged_in?, only: [:new, :create]
 
   def new
   end
@@ -12,5 +13,12 @@ class SessionsController < ApplicationController
       redirect_to login_path
     end
   end
+
+  def destroy
+    byebug
+    session.clear
+    redirect_to login_path
+  end
+
 
 end

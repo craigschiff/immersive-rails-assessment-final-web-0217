@@ -9,6 +9,17 @@
   </head>
 
   <body>
+    <% if flash[:alert] %>
+    <%= flash[:alert] %>
+    <% end %>
+    <%= "Check out these links" %><br />
+    <%= link_to "Episodes!", episodes_path %>
+    <%= link_to "Guests!", guests_path %>
+    <%= link_to "Create Appearance", new_appearance_path %>
+    <% if session[:user_id] %>
+    <%= link_to "Logout", logout_path %>
+    <% end %>
+
     <%= yield %>
   </body>
 </html>
